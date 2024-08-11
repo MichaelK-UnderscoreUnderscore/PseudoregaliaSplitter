@@ -14,7 +14,7 @@ state("pseudoregalia-Win64-Shipping", "Full Gold Patch")
     byte CM: 0x6496640, 0x1B8, 0x1D8, 0x184;                        //Increases by 1 when picking up Clear Mind
     byte menuStart: 0x645D318;                                      //Ingame 1; Menu 0
     int bossPhase: 0x06496640, 0x30, 0xE8, 0x2A8, 0x764;    	    //1 when the boss is dead, 0 when the boss isnt dead, null when boss isnt available
-    int keyItem: 0x06496640, 0x1B8, 0x470;                          //Use vars.ItemIDs, set after version detection, as reference
+    int keyItem: 0x06496640, 0x1B8, 0x470;                          //Use vars.itemIDs, set after version detection, as reference
     int silverKeys: 0x06496640, 0x1B8, 0x1C8;                       //Incrementing value of collected silver keys
     int healthUpgrades: 0x06496640, 0x1B8, 0x260;                   //1 when collecting the first upgrade, 2 on the 2nd. 0 when fully upgraded
     long FGUID: 0x06496640, 0x30, 0x210;                            //5185712904977434514 in menu
@@ -35,7 +35,7 @@ state("pseudoregalia-Win64-Shipping", "Map Update")
     byte CM: 0x0649DAC0, 0x1B8, 0x1D8, 0x198;                       //Increases by 1 when picking up Clear Mind
     byte menuStart: 0x6464798;                                      //Ingame 1; Menu 0
     int bossPhase: 0x0649DAC0, 0x30, 0xE8, 0x2A8, 0x764;    	    //1 when the boss is dead, 0 when the boss isnt dead, null when boss isnt available
-    int keyItem: 0x0649DAC0, 0x1B8, 0x4C0;                          //Use vars.ItemIDs, set after version detection, as reference
+    int keyItem: 0x0649DAC0, 0x1B8, 0x4C0;                          //Use vars.itemIDs, set after version detection, as reference
     int silverKeys: 0x0649DAC0, 0x1B8, 0x1C8;                       //Incrementing value of collected silver keys
     int healthUpgrades: 0x0649DAC0, 0x1B8, 0x260;                   //1 when collecting the first upgrade, 2 on the 2nd. 0 when fully upgraded
     long FGUID: 0x0649DAC0, 0x30, 0x210;                            //5185712904977434514 in menu
@@ -271,17 +271,17 @@ split
             vars.LastSplitDebug = "IS: Multi " + vars.itemIDSettings[vars.itemIDs[current.keyItem]];
             return true;
         }
-        if(current.empathy > old.empathy && vars.empathy == 0 && settings["empathy"] && vars.ItemIDs[current.keyItem] == "empathy"){
+        if(current.empathy > old.empathy && vars.empathy == 0 && settings["empathy"] && vars.itemIDs[current.keyItem] == "empathy"){
             vars.empathy = 1;
             vars.LastSplitDebug = "IS: First Empathy";
             return true;
         }
-        if(current.GG > old.GG && vars.gg == 0 && settings["goodGraces"] && vars.ItemIDs[current.keyItem] == "goodGraces"){
+        if(current.GG > old.GG && vars.gg == 0 && settings["goodGraces"] && vars.itemIDs[current.keyItem] == "goodGraces"){
             vars.gg = 1;
             vars.LastSplitDebug = "IS: First Good Graces";
             return true;
         }
-        if(current.CM > old.CM && vars.cm == 0 && settings["clearMind"] && vars.ItemIDs[current.keyItem] == "clearMind"){
+        if(current.CM > old.CM && vars.cm == 0 && settings["clearMind"] && vars.itemIDs[current.keyItem] == "clearMind"){
             vars.cm = 1;
             vars.LastSplitDebug = "IS: First Clear Mind";
             return true;
